@@ -5,9 +5,13 @@ import { AuthService } from "./auth.service";
 export class AuthController {
     constructor(private authService : AuthService) {}
 
-    @Post("sugnup")
-    signup() {}
+    @Post("signup")
+    signup() {
+        return "This is the SignUp Route";
+    }
 
     @Post("signin")
-    signin() {}
+    signin() {
+        return "This is the SignIn Route";
+    }
 }
