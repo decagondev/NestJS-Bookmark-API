@@ -6,6 +6,12 @@
 
 Buit with [Nest](https://github.com/nestjs/nest) framework TypeScript.
 
+### Endpoints
+
+- **/auth/signin**
+- **/auth/signup**
+- **/bookmarks**
+
 ## Installation
 
 ```bash
