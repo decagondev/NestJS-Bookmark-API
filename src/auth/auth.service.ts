@@ -17,9 +17,12 @@ export class AuthService {
             }
         });
 
+        // TODO: add more elegant solution (Transforms) later
+        delete user.hash;
+
         return user;
     }
-    
+
     signin(dto: AuthDto) {
         return { message: "signin from the service" };
     }
