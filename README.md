@@ -11,6 +11,7 @@ Buit with [Nest](https://github.com/nestjs/nest) framework TypeScript.
 - **/auth/signin**
 - **/auth/signup**
 - **/bookmarks**
+- **/users**
 
 ## Installation
 
