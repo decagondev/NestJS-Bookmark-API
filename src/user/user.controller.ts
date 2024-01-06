@@ -8,11 +8,11 @@ import { EditUserDto } from './dto';
 @UseGuards(JwtGuard)
 @Controller('users')
 export class UserController {
+    
     constructor(private userService: UserService) {}
+
     @Get('dash')
-    getDashboard(@GetUser() user: User) {
-        return user;
-    }
+    getDashboard(@GetUser() user: User) { return user; }
 
     @Patch()
     editUser( @GetUser('id') userId: number, @Body() dto: EditUserDto ) {
