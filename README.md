@@ -8,10 +8,14 @@ Buit with [Nest](https://github.com/nestjs/nest) framework TypeScript.
 
 ### Endpoints
 
-- **/auth/signin**
-- **/auth/signup**
-- **/bookmarks**
-- **/users**
+- **/auth/signin** POST
+- **/auth/signup** POST
+- **/bookmarks** POST
+- **/bookmarks** GET
+- **/bookmarks/:id** GET
+- **/bookmarks/:id** PATCH
+- **/bookmarks/:id** PATCH
+- **/users/dash** GET
 
 ## Installation
 
