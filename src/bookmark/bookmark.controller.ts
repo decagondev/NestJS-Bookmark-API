@@ -32,7 +32,8 @@ export class BookmarkController {
     }
 
     @Delete(':id')
-    deleteBookmarkById(@GetUser('id') userId: number, @Param('id') bookmarkId: number) {}
-
+    deleteBookmarkById(@GetUser('id') userId: number, @Param('id') bookmarkId: number) {
+        return this.bookmarkService.deleteBookmarkById(userId,bookmarkId);
+    }
     
 }
