@@ -5,7 +5,7 @@ import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { PrismaService } from '../src/prisma/prisma.service';
 import { AuthDto } from 'src/auth/dto';
 import { EditUserDto } from 'src/user/dto';
-import { CreateBookmarkDto } from '../src/bookmark/dto';
+import { CreateBookmarkDto, EditBookmarkDto } from '../src/bookmark/dto';
 describe('APP e2e', () => {
 
   let app: INestApplication;
@@ -124,8 +124,25 @@ describe('APP e2e', () => {
         .expectBodyContains('$S{bookmarkId}');
       });
     });
-    
-    describe('Update bookmark by id', () => {});
+
+    describe('Update bookmark by id', () => {
+
+      const dto: EditBookmarkDto = {
+        title: 'Decagon Dev Github Profile.',
+        description: 'The profile of my github account holding my random projects and repositories.',
+      };
+
+      it('should edit bookmark', () => {
+        return pactum.spec().patch('/bookmarks/{id}')
+        .withPathParams('id', '$S{bookmarkId}')
+        .withHeaders({ Authorization: 'Bearer $S{userToken}' })
+        .withBody(dto)
+        .expectStatus(200)
+        .expectBodyContains(dto.title)
+        .expectBodyContains(dto.description);
+      });
+    });
+
     describe('Delete bookmark by id', () => {});
   });
 
