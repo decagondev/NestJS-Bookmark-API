@@ -15,7 +15,9 @@ export class BookmarkService {
         return this.prisma.bookmark.findMany({ where: { userId } });
     }
 
-    getBookmarksById(userId: number, bookmarkId: number) {}
+    getBookmarksById(userId: number, bookmarkId: number) {
+        return this.prisma.bookmark.findFirst({ where: { id: bookmarkId, userId } });
+    }
 
     async editBookmarkById(userId: number, bookmarkId: number, dto: EditBookmarkDto) {
         const bookmark = await this.prisma.bookmark.findUnique({ where: { id: bookmarkId } });
