@@ -5,7 +5,7 @@ import { PrismaService } from '../prisma/prisma.service';
 export class BookmarkService {
     constructor(private prisma: PrismaService) {}
 
-    createBookmark(userId: number) {}
+    async createBookmark(userId: number) {}
     
     getBookmarks(userId: number) {
         return this.prisma.bookmark.findMany({ where: { userId } });
