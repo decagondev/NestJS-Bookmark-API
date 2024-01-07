@@ -143,8 +143,19 @@ describe('APP e2e', () => {
       });
     });
 
-    describe('Delete bookmark by id', () => {});
-  });
+    describe('Delete bookmark by id', () => {
+      it('Should delete bookmark', () => {
+        return pactum.spec().delete('/bookmarks/{id}')
+        .withPathParams('id', '$S{bookmarkId}')
+        .withHeaders({ Authorization: 'Bearer $S{userToken}' })
+        .expectStatus(204);
+      });
 
-  it.todo('this should pass if all startup / teardown are working');
+      it('Should get empty bookmarks', () => {
+        return pactum.spec().get('/bookmarks')
+        .withHeaders({ Authorization: 'Bearer $S{userToken}' })
+        .expectStatus(200).expectJsonLength(0);
+      });
+    });
+  });
 });
