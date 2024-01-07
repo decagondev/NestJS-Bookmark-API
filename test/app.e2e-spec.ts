@@ -60,16 +60,23 @@ describe('APP e2e', () => {
       });
 
       it('Should Signin', () => {
-        return pactum.spec().post('/auth/signin').withBody(dto).expectStatus(200);
+        return pactum.spec().post('/auth/signin').withBody(dto).expectStatus(200).stores('userToken', 'access_token');
       });
     });
   });
 
   describe('User', () => {
-    describe('Get user', () => {});
+    describe('Get user', () => {
+      it('Should throw with no user token', () => {
+        return pactum.spec().get('/users/dash').expectStatus(401);
+      });
+      it('Should get user', () => {
+        return pactum.spec().get('/users/dash').withHeaders({ Authorization: 'Bearer $S{userToken}' }).expectStatus(200);
+      });
+    });
     describe('Edit user', () => {});
   });
-  
+
   describe('Bookmark', () => {
     describe('Get empty bookmarks', () => {});
     describe('Create bookmark', () => {});
