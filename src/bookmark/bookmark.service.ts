@@ -11,9 +11,9 @@ export class BookmarkService {
         return this.prisma.bookmark.findMany({ where: { userId } });
     }
 
-    getBookmarksById(userId: number) {}
+    getBookmarksById(userId: number, bookmarkId: number) {}
 
-    editBookmarkById(userId: number) {}
+    editBookmarkById(userId: number, bookmarkId: number) {}
 
-    deleteBookmarkById(userId: number) {}
+    deleteBookmarkById(userId: number, bookmarkId: number) {}
 }
