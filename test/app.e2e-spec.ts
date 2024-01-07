@@ -106,7 +106,15 @@ describe('APP e2e', () => {
           .stores('bookmarkId', 'id');
       });
     });
-    describe('Get bookmarks', () => {});
+    
+    describe('Get bookmarks', () => {
+      it('should get bookmarks', () => {
+        return pactum.spec().get('/bookmarks')
+        .withHeaders({ Authorization: 'Bearer $S{userToken}' })
+        .expectStatus(200).expectJsonLength(1);
+      });
+    });
+
     describe('Get bookmark by id', () => {});
     describe('Update bookmark by id', () => {});
     describe('Delete bookmark by id', () => {});
