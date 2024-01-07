@@ -26,15 +26,17 @@ describe('APP e2e', () => {
   afterAll(() => app.close());
 
   describe('Auth', () => {
-    describe('Signup', () => {
-      it('Should Signup"', () => {
-        const dto : AuthDto = { email: "tom@decadev.co.uk", password: "123" };
+    const dto : AuthDto = { email: "tom@decadev.co.uk", password: "123" };
 
+    describe('Signup', () => {
+      it('Should Signup', () => {
         return pactum.spec().post('/auth/signup').withBody(dto).expectStatus(201);
       });
     });
     describe('Signin', () => {
-      it.todo("Should Signin");
+      it('Should Signin', () => {
+        return pactum.spec().post('/auth/signin').withBody(dto).expectStatus(200);
+      });
     });
   });
   describe('User', () => {
