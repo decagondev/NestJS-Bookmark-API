@@ -7,7 +7,9 @@ export class BookmarkService {
 
     createBookmark(userId: number) {}
     
-    getBookmark(userId: number) {}
+    getBookmarks(userId: number) {
+        return this.prisma.bookmark.findMany({ where: { userId } });
+    }
 
     getBookmarksById(userId: number) {}
 
