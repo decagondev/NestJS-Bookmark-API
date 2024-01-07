@@ -106,9 +106,9 @@ describe('APP e2e', () => {
           .stores('bookmarkId', 'id');
       });
     });
-    
+
     describe('Get bookmarks', () => {
-      it('should get bookmarks', () => {
+      it('Should get bookmarks', () => {
         return pactum.spec().get('/bookmarks')
         .withHeaders({ Authorization: 'Bearer $S{userToken}' })
         .expectStatus(200).expectJsonLength(1);
