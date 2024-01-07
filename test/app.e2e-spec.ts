@@ -33,6 +33,10 @@ describe('APP e2e', () => {
         return pactum.spec().post('/auth/signup').withBody({ password: dto.password }).expectStatus(400);
       })
       
+      it('Should Throw if password missing', () => {
+        return pactum.spec().post('/auth/signup').withBody({ email: dto.email }).expectStatus(400);
+      })
+
       it('Should Signup', () => {
         return pactum.spec().post('/auth/signup').withBody(dto).expectStatus(201);
       });
