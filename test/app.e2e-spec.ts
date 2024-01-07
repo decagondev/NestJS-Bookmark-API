@@ -29,6 +29,10 @@ describe('APP e2e', () => {
     const dto : AuthDto = { email: "tom@decadev.co.uk", password: "123" };
 
     describe('Signup', () => {
+      it('Should Throw if email missing', () => {
+        return pactum.spec().post('/auth/signup').withBody({ password: dto.password }).expectStatus(400);
+      })
+      
       it('Should Signup', () => {
         return pactum.spec().post('/auth/signup').withBody(dto).expectStatus(201);
       });
