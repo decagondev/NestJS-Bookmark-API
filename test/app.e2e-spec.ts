@@ -4,6 +4,7 @@ import { AppModule } from '../src/app.module';
 import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { PrismaService } from '../src/prisma/prisma.service';
 import { AuthDto } from 'src/auth/dto';
+import { EditUserDto } from 'src/user/dto';
 describe('APP e2e', () => {
 
   let app: INestApplication;
@@ -74,7 +75,13 @@ describe('APP e2e', () => {
         return pactum.spec().get('/users/dash').withHeaders({ Authorization: 'Bearer $S{userToken}' }).expectStatus(200);
       });
     });
-    describe('Edit user', () => {});
+
+    describe('Edit user', () => {
+      it('Should Edit user with a first name provided', () => {
+        const dto: EditUserDto = { firstName: "Tom" };
+        return pactum.spec().patch('/users').withHeaders({ Authorization: 'Bearer $S{userToken}' }).withBody(dto).expectStatus(200).expectBodyContains(dto.firstName);
+      });
+    });
   });
 
   describe('Bookmark', () => {
