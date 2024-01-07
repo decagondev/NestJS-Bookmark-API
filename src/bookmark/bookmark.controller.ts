@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from '@n
 import { JwtGuard } from '../auth/guard';
 import { BookmarkService } from './bookmark.service';
 import { GetUser } from '../auth/decorator';
-import { CreateBookmarkDto } from './dto';
+import { CreateBookmarkDto, EditBookmarkDto } from './dto';
 
 
 @UseGuards(JwtGuard)
@@ -27,7 +27,9 @@ export class BookmarkController {
     }
 
     @Patch(':id')
-    editBookmarkById(@GetUser('id') userId: number, @Param('id') bookmarkId: number) {}
+    editBookmarkById(@GetUser('id') userId: number, @Param('id') bookmarkId: number, @Body() dto: EditBookmarkDto) {
+        return this.bookmarkService.editBookmarkById(userId, bookmarkId, dto);
+    }
 
     @Delete(':id')
     deleteBookmarkById(@GetUser('id') userId: number, @Param('id') bookmarkId: number) {}
