@@ -15,7 +15,7 @@ export class BookmarkService {
         return this.prisma.bookmark.findMany({ where: { userId } });
     }
 
-    getBookmarksById(userId: number, bookmarkId: number) {
+    getBookmarkById(userId: number, bookmarkId: number) {
         return this.prisma.bookmark.findFirst({ where: { id: bookmarkId, userId } });
     }
 

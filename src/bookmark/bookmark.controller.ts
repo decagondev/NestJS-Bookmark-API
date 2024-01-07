@@ -22,7 +22,9 @@ export class BookmarkController {
     }
 
     @Get(':id')
-    getBookmarksById(@GetUser('id') userId: number, @Param('id') bookmarkId: number) {}
+    getBookmarksById(@GetUser('id') userId: number, @Param('id') bookmarkId: number) {
+        return this.bookmarkService.getBookmarkById(userId, bookmarkId);
+    }
 
     @Patch(':id')
     editBookmarkById(@GetUser('id') userId: number, @Param('id') bookmarkId: number) {}
