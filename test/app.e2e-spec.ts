@@ -88,6 +88,11 @@ describe('APP e2e', () => {
   describe('Bookmark', () => {
 
     describe('Get empty bookmarks', () => {
+      it('Should throw if no Auth header present', () => {
+        return pactum.spec().get('/bookmarks')
+        .expectStatus(401);
+      });
+
       it('Should get bookmarks', () => {
         return pactum.spec().get('/bookmarks')
         .withHeaders({ Authorization: 'Bearer $S{userToken}' })
