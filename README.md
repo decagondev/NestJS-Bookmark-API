@@ -8,14 +8,13 @@ Buit with [Nest](https://github.com/nestjs/nest) framework TypeScript.
 
 ### Endpoints
 
-- **/auth/signin** POST
-- **/auth/signup** POST
-- **/bookmarks** POST
-- **/bookmarks** GET
-- **/bookmarks/:id** GET
-- **/bookmarks/:id** PATCH
-- **/bookmarks/:id** PATCH
-- **/users/dash** GET
+- **/auth/signin** POST `https://bookmarks-qnj4dlxm.b4a.run/auth/signin`
+- **/auth/signup** POST `https://bookmarks-qnj4dlxm.b4a.run/auth/signup`
+- **/bookmarks** POST `https://bookmarks-qnj4dlxm.b4a.run/bookmarks`
+- **/bookmarks** GET `https://bookmarks-qnj4dlxm.b4a.run/bookmarks`
+- **/bookmarks/:id** GET `https://bookmarks-qnj4dlxm.b4a.run/bookamrks/1`
+- **/bookmarks/:id** PATCH `https://bookmarks-qnj4dlxm.b4a.run/bookamrks/1`
+- **/users/dash** GET `https://bookmarks-qnj4dlxm.b4a.run/users/dash`
 
 ## Installation
 
@@ -45,6 +44,8 @@ $ npm run test
 # e2e tests
 $ npm run test:e2e
 
-# test coverage
 $ npm run test:cov
 ```
+
+## Deployed version
+`https://bookmarks-qnj4dlxm.b4a.run/`
