@@ -10,7 +10,7 @@ RUN npm ci
 COPY . .
 
 RUN npx prisma generate
-RUN npx prisma push dev
+RUN npx prisma db push dev
 
 RUN npm run build
 
