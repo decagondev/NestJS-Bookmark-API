@@ -15,6 +15,7 @@ Buit with [Nest](https://github.com/nestjs/nest) framework TypeScript.
 - **/bookmarks/:id** GET `https://bookmarks-qnj4dlxm.b4a.run/bookamrks/1`
 - **/bookmarks/:id** PATCH `https://bookmarks-qnj4dlxm.b4a.run/bookamrks/1`
 - **/users/dash** GET `https://bookmarks-qnj4dlxm.b4a.run/users/dash`
+- **/shrten** POST `https://bookmarks-qnj4dlxm.b4a.run/shorten` **TBD**
 
 ## Installation
 
