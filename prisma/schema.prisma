@@ -34,7 +34,6 @@ model Bookmark {
   title       String
   description String?
   link        String
-  shortCode   String?
 
   userId Int
   user   User @relation(fields: [userId], references: [id])
