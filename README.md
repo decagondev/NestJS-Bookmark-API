@@ -48,5 +48,5 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Deployed version
+## Deployed version V1
 `https://bookmarks-qnj4dlxm.b4a.run/`
